@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import { Switch, Route } from 'react-router-dom'
 
 import Products from './Products.jsx';

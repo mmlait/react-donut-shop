@@ -36,10 +36,10 @@ const TopBar = styled.nav`
   display: flex;
   justify-content: space-around;
   background-color: ${colors.topBarBg};
-  min-height: 80px;
-  padding-top: 25px;
+  min-height: 100px;
   text-align: center;
   margin: 0 auto;
+  align-items: center;
 `
 
 const TopBarSection = styled.div`
@@ -139,12 +139,16 @@ const DonutImg = styled.img`
 const LessItemsBtn = styled.button`
   background-color: ${colors.appBg};
   color: ${colors.buttonBg};
+  width: 25px;
+  height: 25px;
   font-size: 1.1rem;
   font-weight: bold;
   border: none;
   cursor: pointer;
   &:hover {
     color: ${colors.buttonHoverBg};
+    border: 1px solid ${colors.text};
+    border-radius: 50%;
   }
   &:focus {
     outline: none;
@@ -154,12 +158,16 @@ const LessItemsBtn = styled.button`
 const MoreItemsBtn = styled.button`
   background-color: ${colors.appBg};
   color: ${colors.buttonBg};
+  width: 25px;
+  height: 25px;
   font-size: 1.1rem;
   font-weight: bold;
   border: none;
   cursor: pointer;
   &:hover {
     color: ${colors.buttonHoverBg};
+    border: 1px solid ${colors.text};
+    border-radius: 50%;
   }
   &:focus {
     outline: none;
@@ -330,10 +338,18 @@ const ItemRow = styled.div`
   &:last-of-type {
     margin-bottom: 10px;
   }
+`
+
+const ProductInfo = styled.div`
+  display: flex;
+  flex-basis: 80%;
+  align-items: center;
+  padding-left: 20px;
   @media (max-width: 700px) {
     flex-direction: column;
     align-items: start;
-    padding: 20px 0 20px 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 `
 
@@ -343,7 +359,7 @@ const ItemImg = styled.img`
 
 const ImgDiv = styled.div`
   display: flex;
-  flex-basis: 40%;
+  flex-basis: 50%;
   align-items: center;
   @media (max-width: 700px) {
     padding-bottom: 10px;
@@ -355,14 +371,14 @@ const ItemName = styled.div`
 `
 
 const AmountDiv = styled.div`
-  flex-basis: 20%;
+  flex-basis: 25%;
   @media (max-width: 700px) {
     padding-bottom: 10px;
   }
 `
 
 const PriceDiv = styled.div`
-  flex-basis: 20%;
+  flex-basis: 25%;
   @media (max-width: 700px) {
     padding-bottom: 10px;
   }
@@ -542,7 +558,7 @@ export {
   // ShoppingCartNav.jsx
   ToProducts, CartNavImageDiv,
   // Item.jsx
-  ItemRow, ItemImg, ImgDiv, ItemName, AmountDiv, PriceDiv, AddAndDelete, DeleteItemBtn,
+  ItemRow, ProductInfo, ItemImg, ImgDiv, ItemName, AmountDiv, PriceDiv, AddAndDelete, DeleteItemBtn,
   // PaymentMethod.jsx
   ContentWrapper, ChoosePaymentMethodForm, PaperBillOption, CardPaymentOption,
   PaymentMethodInput, PaperBillImg, CardImg, PurchaseBtn, ImgWrapperDiv,
