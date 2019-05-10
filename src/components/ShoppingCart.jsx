@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 import Item from './Item.jsx';
-import MainHeading, { CartContainer, ListWrapper, Sum, SumTotalText,
-   SumTotalValue, ContinueDiv, ContinueToPay, CartImgWrapper, EmptyCartHeading,
+import MainHeading, { Heading2, CartContainer, ListWrapper, Sum, SumTotalText,
+   SumTotalValue, ContinueDiv, ContinueToPay, CartImgWrapper,
    EmptyCartImg } from './general/Elements';
 
 
@@ -119,7 +119,7 @@ class ShoppingCart extends Component {
               <CartImgWrapper>
                 <EmptyCartImg src="/images/shopping-cart.svg" alt="empty cart" />
               </CartImgWrapper>
-              <EmptyCartHeading>Your shopping cart is empty!</EmptyCartHeading>
+              <Heading2>Your shopping cart is empty!</Heading2>
             </div>)
           }
       </CartContainer>

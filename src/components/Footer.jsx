@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import colors from '../colors';
+
 
 const AppFooter = styled.footer`
-  background-color: #007984;
+  background-color: ${colors.footerBg};
   text-align: center;
   position: absolute;
   bottom: 0;

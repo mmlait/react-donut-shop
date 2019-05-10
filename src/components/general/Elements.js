@@ -26,6 +26,36 @@ const LinkText = styled.span`
   }
 `
 
+// App.jsx
+const AppWrapper = styled.div`
+  min-height: 100%;
+  position: relative;
+`
+
+const TopBar = styled.nav`
+  display: flex;
+  justify-content: space-around;
+  background-color: ${colors.topBarBg};
+  min-height: 80px;
+  padding-top: 25px;
+  text-align: center;
+  margin: 0 auto;
+`
+
+const TopBarSection = styled.div`
+  flex-basis: 30%;
+`
+
+const ShopName = styled.span`
+  width: 100%;
+  margin: 0 auto;
+`
+
+const MainContent = styled.div`
+  min-height: 120vh;
+  padding-bottom: 100px;
+`
+
 
 // ---------- StartNav.jsx ----------
 const StartNavImgDiv = styled.div`
@@ -107,7 +137,7 @@ const DonutImg = styled.img`
 
 // ---------- ItemCounter.jsx ----------
 const LessItemsBtn = styled.button`
-  background-color: #38F2F2;
+  background-color: ${colors.appBg};
   color: ${colors.buttonBg};
   font-size: 1.1rem;
   font-weight: bold;
@@ -122,7 +152,7 @@ const LessItemsBtn = styled.button`
 `
 
 const MoreItemsBtn = styled.button`
-  background-color: #38F2F2;
+  background-color: ${colors.appBg};
   color: ${colors.buttonBg};
   font-size: 1.1rem;
   font-weight: bold;
@@ -151,33 +181,32 @@ const ModalWrapper = styled.div`
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4);
+  background-color: ${colors.outsideModalDarker};
 `
 
 const ModalContent = styled.div`
   color: ${colors.buttonBg};
-  background-color: #e2e2e2;
+  background-color: ${colors.modalBoxBg};
   margin: auto;
   padding: 40px 20px;
   width: 50%;
   text-align: center;
   font-size: 1.5rem;
   border-radius: 5px;
-  border: 2px solid white;
+  border: 2px solid ${colors.text};
   @media (max-width: 500px) {
     width: 80%;
   }
 `
 
 const CloseModal = styled.span`
-  color: #aaaaaa;
+  color: ${colors.closeModal};
   float: right;
   font-size: 28px;
   font-weight: bold;
   padding: 5px;
   &:hover {
-    color: #007984;
+    color: ${colors.closeModalHover};
     text-decoration: none;
     cursor: pointer;
   }
@@ -221,7 +250,7 @@ const SumTotalText = styled.span`
 
 const SumTotalValue = styled.span`
   font-size: 1.3rem;
-  color: #007984;
+  color: ${colors.sumTotalValue};
 `
 
 const ContinueDiv = styled.div`
@@ -251,16 +280,11 @@ const CartImgWrapper = styled.div`
   border-radius: 50%;
   width: 200px;
   height: 200px;
-  background-color: #00464C;
+  background-color: ${colors.emptyCartImgBg};
   display: flex;
   justify-content: center;
   margin: 0 auto;
   flex-direction: column;
-`
-
-const EmptyCartHeading = styled.h2`
-  text-align: center;
-  font-weight: bold;
 `
 
 const EmptyCartImg = styled.img`
@@ -302,7 +326,7 @@ const ItemRow = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 10px 0;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid ${colors.text};
   &:last-of-type {
     margin-bottom: 10px;
   }
@@ -453,7 +477,7 @@ const PurchaseBtn = styled.button`
 `
 
 const ImgWrapperDiv = styled.div`
-  background-color: #00464C;
+  background-color: ${colors.imgBg};
   border-radius: 50%;
   width: 100px;
   height: 100px;
@@ -502,6 +526,8 @@ const NavImgDiv = styled.div`
 export {
   // general
   MainHeading as default, Heading2, LinkImg, LinkText,
+  // App.jsx
+  AppWrapper, TopBar, TopBarSection, ShopName, MainContent,
   // StartNav.jsx
   StartNavImgDiv, ToShoppingCart,
   // Products.jsx
@@ -512,7 +538,7 @@ export {
   ModalWrapper, ModalContent, CloseModal, ModalDonutImg,
   // ShoppingCart.jsx
   CartContainer, ListWrapper, Sum, SumTotalText, SumTotalValue, ContinueDiv,
-  ContinueToPay, CartImgWrapper, EmptyCartHeading, EmptyCartImg,
+  ContinueToPay, CartImgWrapper, EmptyCartImg,
   // ShoppingCartNav.jsx
   ToProducts, CartNavImageDiv,
   // Item.jsx
