@@ -129,7 +129,6 @@ class Products extends Component {
   }
 
   updateList = (list) => {
-    console.log(list);
     this.setState( prevState => {
       return {
         listOfItems: list,
@@ -154,7 +153,6 @@ class Products extends Component {
   }
 
   displayCartModal = () => {
-    console.log("hello");
     let cartModal = document.getElementById("cartModal");
     cartModal.style.display = "block";
     setTimeout(() => {
