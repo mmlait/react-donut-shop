@@ -3,7 +3,7 @@ import React from 'react';
 import { ModalWrapper, ModalContent, CloseModal, ModalDonutImg } from './general/Elements';
 
 
-const Modal = (props) => {
+const DonutsAddedModal = (props) => {
   const donutsAdded = props.donutsAdded;
   const goodbye = props.goodbye;
   const choosePaymentMethod = props.choosePaymentMethod;
@@ -32,4 +32,4 @@ const Modal = (props) => {
   )
 }
 
-export default Modal;
+export default DonutsAddedModal;

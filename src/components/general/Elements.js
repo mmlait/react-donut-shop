@@ -139,15 +139,15 @@ const DonutImg = styled.img`
 const LessItemsBtn = styled.button`
   background-color: ${colors.appBg};
   color: ${colors.buttonBg};
-  width: 25px;
-  height: 25px;
+  width: 35px;
+  height: 35px;
   font-size: 1.1rem;
   font-weight: bold;
   border: none;
   cursor: pointer;
   &:hover {
     color: ${colors.buttonHoverBg};
-    border: 1px solid ${colors.text};
+    background: ${colors.counterBtnHoverBg};
     border-radius: 50%;
   }
   &:focus {
@@ -158,15 +158,15 @@ const LessItemsBtn = styled.button`
 const MoreItemsBtn = styled.button`
   background-color: ${colors.appBg};
   color: ${colors.buttonBg};
-  width: 25px;
-  height: 25px;
+  width: 35px;
+  height: 35px;
   font-size: 1.1rem;
   font-weight: bold;
   border: none;
   cursor: pointer;
   &:hover {
     color: ${colors.buttonHoverBg};
-    border: 1px solid ${colors.text};
+    background: ${colors.counterBtnHoverBg};
     border-radius: 50%;
   }
   &:focus {
@@ -189,7 +189,7 @@ const ModalWrapper = styled.div`
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: ${colors.outsideModalDarker};
+  background-color: ${colors.modalBgOverlay};
 `
 
 const ModalContent = styled.div`
@@ -227,6 +227,60 @@ const ModalDonutImg = styled.img`
   max-width: 90px;
 `
 
+// CartModal.jsx
+const CartModalWrapper = styled.div`
+  display: none;
+  position: fixed;
+  right: 0;
+  top: 100px;
+  width: 30%;
+  min-height: 15%;
+  background-color: ${colors.cartModalBoxBg};
+`
+
+const CartModalContent = styled.div`
+  margin: auto;
+  padding: 10px;
+  width: 50%;
+`
+
+const Wrapper = styled.div`
+  width: 100%;
+  margin: 0 auto;
+  font-size: 0.7rem;
+`
+
+// CartModalItem.jsx
+const CartModalItemRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+`
+
+const CartModalDonutImg = styled.img`
+  max-width: 30px;
+`
+
+const DonutImgDiv = styled.div`
+  display: flex;
+  flex-basis: 50%;
+  align-items: center;
+  @media (max-width: 700px) {
+    padding-bottom: 10px;
+  }
+`
+
+const ProductName = styled.div`
+  margin-left: 10px;
+`
+
+const DonutAmountDiv = styled.div`
+  flex-basis: 25%;
+  @media (max-width: 700px) {
+    padding-bottom: 10px;
+  }
+`
 
 // ---------- ShoppingCart.jsx ----------
 const CartContainer = styled.div`
@@ -552,6 +606,10 @@ export {
   LessItemsBtn, MoreItemsBtn, NumberOfItems,
   // Modal.jsx
   ModalWrapper, ModalContent, CloseModal, ModalDonutImg,
+  // CartModal.jsx
+  CartModalWrapper, CartModalContent, Wrapper,
+  // CartModalItem.jsx
+  CartModalItemRow, CartModalDonutImg, DonutImgDiv, ProductName, DonutAmountDiv,
   // ShoppingCart.jsx
   CartContainer, ListWrapper, Sum, SumTotalText, SumTotalValue, ContinueDiv,
   ContinueToPay, CartImgWrapper, EmptyCartImg,

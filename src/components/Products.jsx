@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
 import Counter from './ItemCounter.jsx';
-import Modal from './Modal.jsx';
+import DonutsAddedModal from './Modal.jsx';
+import CartModal from './CartModal.jsx';
 import MainHeading, { Heading2, MainWrapper, ImgWrapper, ProductContainer,
   AddToCartBtn, DonutImg } from './general/Elements';
 
@@ -38,10 +39,12 @@ class Products extends Component {
     super(props, context);
     this.state = {
       show: false,
+      listOfItems: [],
       addToCartModalId: "addToCartModal",
       addToCartDonutName: "Chocolate donut",
       addToCartDonutAmount: 1,
-      addToCartModalImagePath: "/images/chocolate-donut.png"
+      addToCartModalImagePath: "/images/chocolate-donut.png",
+      sumTotal: 0
     };
   }
 
@@ -95,7 +98,9 @@ class Products extends Component {
         addToCartDonutName: donutName,
         addToCartDonutAmount: counterValue
       }
-    });
+    },
+    this.readLocalstorage
+    );
   }
 
   addToCartImage = (image) => {
@@ -106,12 +111,64 @@ class Products extends Component {
     });
   }
 
+  readLocalstorage = () => {
+    var list = [];
+    let numberOfDonutTypes = localStorage.getItem("number_of_donut_types")
+    for (let i = 0; i < numberOfDonutTypes; i++) {
+      if(localStorage.getItem("donut_" + i + "_amount") !== "0") {
+        list.push({
+          name: localStorage.getItem("donut_" + i + "_name"),
+          image: localStorage.getItem("donut_" + i + "_image"),
+          amount: localStorage.getItem("donut_" + i + "_amount"),
+          donutId: localStorage.getItem("donut_"+ i + "_id"),
+          subTotal: localStorage.getItem("donut_" + i + "_amount") * localStorage.getItem("donut_"+ i + "_price")
+        });
+      }
+    }
+    this.updateList(list)
+  }
+
+  updateList = (list) => {
+    console.log(list);
+    this.setState( prevState => {
+      return {
+        listOfItems: list,
+      }
+    },
+    this.updateTotalPrice(list)
+    );
+  }
+
+  updateTotalPrice = (list) => {
+    let sumTotal = 0;
+    for (let i = 0; i < list.length; i++) {
+      sumTotal = sumTotal + list[i].subTotal
+    }
+    this.setState( prevState => {
+      return {
+        sumTotal: sumTotal
+      }
+    },
+    this.displayCartModal
+    );
+  }
+
+  displayCartModal = () => {
+    console.log("hello");
+    let cartModal = document.getElementById("cartModal");
+    cartModal.style.display = "block";
+    setTimeout(() => {
+      cartModal.style.display = "none";
+    }, 6000);
+  }
+
   render() {
     return (
       <MainWrapper>
+        <CartModal listOfItems={this.state.listOfItems} sumTotal={this.state.sumTotal}/>
         <MainHeading>Welcome!</MainHeading>
         <Heading2>Take your pick</Heading2>
-        <Modal id={this.state.addToCartModalId} donutName={this.state.addToCartDonutName} donutAmount={this.state.addToCartDonutAmount} donutImg={this.state.addToCartModalImagePath} donutsAdded={true}/>
+        <DonutsAddedModal id={this.state.addToCartModalId} donutName={this.state.addToCartDonutName} donutAmount={this.state.addToCartDonutAmount} donutImg={this.state.addToCartModalImagePath} donutsAdded={true}/>
         <ImgWrapper>
         <ProductContainer>
           <DonutImg src="/images/chocolate-donut.png" alt="chocolate-donut" />
