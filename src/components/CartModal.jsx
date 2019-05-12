@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
 import CartModalItem from './CartModalItem.jsx';
-import { CartModalWrapper, CartModalContent, Wrapper } from './general/Elements';
+import { CartModalWrapper, CartModalContent, CartModalHeading, Wrapper, CartModalTotal,
+  CartModalTotalSum } from './general/Elements';
 
 
 class CartModal extends Component {
@@ -10,18 +11,21 @@ class CartModal extends Component {
     return (
       <CartModalWrapper className="cart-modal" id="cartModal">
         <CartModalContent className="cart-modal-content">
-        <p>Your Cart</p>
-        <Wrapper>
-        {this.props.listOfItems.map( item =>
-          <CartModalItem
-          name={item.name}
-          amount={item.amount}
-          image={item.image}
-          key={item.donutId}
-           />
-        )}
-        <p>Total Amount: {this.props.sumTotal}</p>
-        </Wrapper>
+          <CartModalHeading>Your Cart</CartModalHeading>
+          <Wrapper>
+          {this.props.listOfItems.map( item =>
+            <CartModalItem
+            name={item.name}
+            amount={item.amount}
+            image={item.image}
+            key={item.donutId}
+             />
+          )}
+          <CartModalTotal>
+            <span>Total Amount:</span>
+            <CartModalTotalSum> {this.props.sumTotal} </CartModalTotalSum>$
+          </CartModalTotal>
+          </Wrapper>
         </CartModalContent>
       </CartModalWrapper>
     )

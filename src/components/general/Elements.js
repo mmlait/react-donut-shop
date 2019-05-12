@@ -26,7 +26,8 @@ const LinkText = styled.span`
   }
 `
 
-// App.jsx
+
+// ---------- App.jsx ----------
 const AppWrapper = styled.div`
   min-height: 100%;
   position: relative;
@@ -193,7 +194,7 @@ const ModalWrapper = styled.div`
 `
 
 const ModalContent = styled.div`
-  color: ${colors.buttonBg};
+  color: ${colors.modalText};
   background-color: ${colors.modalBoxBg};
   margin: auto;
   padding: 40px 20px;
@@ -227,48 +228,85 @@ const ModalDonutImg = styled.img`
   max-width: 90px;
 `
 
-// CartModal.jsx
+
+// ---------- CartModal.jsx ----------
 const CartModalWrapper = styled.div`
   display: none;
   position: fixed;
-  right: 0;
-  top: 100px;
-  width: 30%;
+  right: 5px;
+  top: 105px;
+  width: 22%;
   min-height: 15%;
-  background-color: ${colors.cartModalBoxBg};
+  background-color: ${colors.text};
+  border-radius: 5px;
+  @media (max-width: 1050px) {
+    width: 29%;
+  }
+  @media (max-width: 830px) {
+    width: 33%;
+  }
+  @media (max-width: 500px) {
+    width: 50%;
+  }
+  @media (max-width: 350px) {
+    width: 90%;
+  }
 `
 
 const CartModalContent = styled.div`
-  margin: auto;
+  color: ${colors.modalText};
   padding: 10px;
-  width: 50%;
+`
+
+const CartModalHeading = styled.h4`
+  text-align: center;
+  margin: 15px 0;
 `
 
 const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 100%;
   margin: 0 auto;
   font-size: 0.7rem;
 `
 
-// CartModalItem.jsx
+const CartModalTotal = styled.div`
+  align-self: flex-end;
+  padding: 20px 10px 20px 0;
+`
+
+const CartModalTotalSum = styled.span`
+  font-weight: bold;
+`
+
+
+// ---------- CartModalItem.jsx ----------
 const CartModalItemRow = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
+  padding: 10px;
+  border-bottom: 1px solid ${colors.cartModalRowBorder};
+  @media (max-width: 830px) {
+    padding: 5px 0;
+  }
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `
 
 const CartModalDonutImg = styled.img`
   max-width: 30px;
+  @media (max-width: 1050px) {
+    width: 23px;
+  }
 `
 
 const DonutImgDiv = styled.div`
   display: flex;
-  flex-basis: 50%;
   align-items: center;
-  @media (max-width: 700px) {
-    padding-bottom: 10px;
-  }
 `
 
 const ProductName = styled.div`
@@ -276,11 +314,12 @@ const ProductName = styled.div`
 `
 
 const DonutAmountDiv = styled.div`
-  flex-basis: 25%;
-  @media (max-width: 700px) {
-    padding-bottom: 10px;
+  @media (max-width: 600px) {
+    padding-top: 5px;
+    padding-left: 33px;
   }
 `
+
 
 // ---------- ShoppingCart.jsx ----------
 const CartContainer = styled.div`
@@ -607,7 +646,7 @@ export {
   // Modal.jsx
   ModalWrapper, ModalContent, CloseModal, ModalDonutImg,
   // CartModal.jsx
-  CartModalWrapper, CartModalContent, Wrapper,
+  CartModalWrapper, CartModalContent, CartModalHeading, Wrapper, CartModalTotal, CartModalTotalSum,
   // CartModalItem.jsx
   CartModalItemRow, CartModalDonutImg, DonutImgDiv, ProductName, DonutAmountDiv,
   // ShoppingCart.jsx
