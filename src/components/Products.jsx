@@ -49,7 +49,7 @@ class Products extends Component {
   }
 
   componentDidMount(){
-    if(localStorage.getItem("cartIsEmpty") === "true") {
+    if(localStorage.getItem("cartIsEmpty") === "true" || localStorage.getItem("cartIsEmpty") === null) {
       localStorage.clear();
       for (let i = 0; i < menu.length; i++) {
         localStorage.setItem("donut_" + i + "_name", menu[i].name)
