@@ -287,6 +287,7 @@ const ClearCartBtn = styled.button`
   border: none;
   border-radius: 5px;
   padding: 5px;
+  font-size: 0.7rem;
   &:hover {
     background-color: ${colors.buttonHoverBg};
     cursor: pointer;
