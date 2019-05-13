@@ -10,6 +10,7 @@ import PaymentMethod from './PaymentMethod.jsx';
 import BackToCart from './PaymentMethodNav.jsx';
 import Footer from './Footer.jsx';
 import colors from '../colors';
+import '../index.css';
 import { AppWrapper, TopBar, TopBarSection, ShopName, MainContent } from './general/Elements';
 
 

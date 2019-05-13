@@ -136,14 +136,34 @@ class Products extends Component {
     let cartModal = document.getElementById("cartModal");
     cartModal.style.display = "block";
     setTimeout(() => {
+      cartModal.classList.add("fade");
+    }, 4400);
+    setTimeout(() => {
       cartModal.style.display = "none";
-    }, 6000);
+      cartModal.classList.remove("fade");
+    }, 5000);
   }
+
+  clearCart = () => {
+    for (let i = 0; i < menu.length; i++) {
+      localStorage.setItem("donut_" + i + "_name", menu[i].name)
+      localStorage.setItem("donut_" + i + "_image", menu[i].image)
+      localStorage.setItem("donut_" + i + "_amount", menu[i].amount)
+      localStorage.setItem("donut_" + i + "_counter", menu[i].counter)
+      localStorage.setItem("donut_" + i + "_id", menu[i].donutId)
+      localStorage.setItem("donut_" + i + "_price", menu[i].price)
+    }
+    localStorage.setItem("number_of_donut_types", menu.length)
+    localStorage.setItem("cartIsEmpty", false)
+    let cartModal = document.getElementById("cartModal");
+    cartModal.style.display = "none";
+  }
+
 
   render() {
     return (
       <MainWrapper>
-        <CartModal listOfItems={this.state.listOfItems} sumTotal={this.state.sumTotal}/>
+        <CartModal listOfItems={this.state.listOfItems} sumTotal={this.state.sumTotal} clearCart={this.clearCart}/>
         <MainHeading>Welcome!</MainHeading>
         <Heading2>Take your pick</Heading2>
         <DonutsAddedModal id={this.state.addToCartModalId} donutName={this.state.addToCartDonutName} donutAmount={this.state.addToCartDonutAmount} donutImg={this.state.addToCartModalImagePath} donutsAdded={true}/>

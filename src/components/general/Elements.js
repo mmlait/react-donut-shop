@@ -280,6 +280,22 @@ const CartModalTotalSum = styled.span`
   font-weight: bold;
 `
 
+const ClearCartBtn = styled.button`
+  background-color: ${colors.buttonBg};
+  color: ${colors.text};
+  align-self: flex-start;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  &:hover {
+    background-color: ${colors.buttonHoverBg};
+    cursor: pointer;
+  }
+  &:focus {
+    outline: none;
+  }
+`
+
 
 // ---------- CartModalItem.jsx ----------
 const CartModalItemRow = styled.div`
@@ -646,7 +662,8 @@ export {
   // Modal.jsx
   ModalWrapper, ModalContent, CloseModal, ModalDonutImg,
   // CartModal.jsx
-  CartModalWrapper, CartModalContent, CartModalHeading, Wrapper, CartModalTotal, CartModalTotalSum,
+  CartModalWrapper, CartModalContent, CartModalHeading, Wrapper, CartModalTotal,
+  CartModalTotalSum, ClearCartBtn,
   // CartModalItem.jsx
   CartModalItemRow, CartModalDonutImg, DonutImgDiv, ProductName, DonutAmountDiv,
   // ShoppingCart.jsx

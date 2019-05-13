@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import CartModalItem from './CartModalItem.jsx';
 import { CartModalWrapper, CartModalContent, CloseModal, CartModalHeading, Wrapper,
-  CartModalTotal, CartModalTotalSum } from './general/Elements';
+  CartModalTotal, CartModalTotalSum, ClearCartBtn } from './general/Elements';
 
 
 class CartModal extends Component {
@@ -26,6 +26,7 @@ class CartModal extends Component {
             <span>Total Amount:</span>
             <CartModalTotalSum> {this.props.sumTotal} </CartModalTotalSum>$
           </CartModalTotal>
+          <ClearCartBtn onClick={this.props.clearCart}>Clear Cart</ClearCartBtn>
           </Wrapper>
         </CartModalContent>
       </CartModalWrapper>
