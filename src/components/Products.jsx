@@ -5,34 +5,8 @@ import DonutsAddedModal from './Modal.jsx';
 import CartModal from './CartModal.jsx';
 import MainHeading, { Heading2, MainWrapper, ImgWrapper, ProductContainer,
   AddToCartBtn, DonutImg } from './general/Elements';
+import menu from '../menu';
 
-
-const menu = [
-    {
-      donutId: 0,
-      name: "Chocolate Donut",
-      image: "/images/chocolate-donut.png",
-      amount: 0,
-      counter: 1,
-      price: 2
-    },
-    {
-      donutId: 1,
-      name: "Pink Donut",
-      image: "/images/pink-donut.png",
-      amount: 0,
-      counter: 1,
-      price: 2
-    },
-    {
-      donutId: 2,
-      name: "Rainbow Donut",
-      image: "/images/rainbow-donut.png",
-      amount: 0,
-      counter: 1,
-      price: 2
-    }
-]
 
 class Products extends Component {
   constructor(props, context) {
@@ -65,9 +39,15 @@ class Products extends Component {
 
     let modal = document.getElementById(this.state.addToCartModalId);
     let span = document.getElementsByClassName("close")[0];
+    let cartModal = document.getElementById("cartModal");
+    let closeCartModal = document.getElementsByClassName("close-cart-modal")[0];
 
     span.onclick = function() {
       modal.style.display = "none";
+    }
+
+    closeCartModal.onclick = function() {
+      cartModal.style.display = "none";
     }
 
     // Close modal when user clicks outside of the modal
