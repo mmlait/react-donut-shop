@@ -1,3 +1,3 @@
 
 
-<img src="donutShop.gif" width="450"/>
+<img src="donutShop.gif" width="650"/>
